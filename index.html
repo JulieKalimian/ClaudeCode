@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- artifact:head -->
+<title>Moda Trend Report</title>
+<meta name="description" content="The Fall/Winter 2026 runway trends, studio-to-street activewear trends and an early read on Spring 2027, laid out with photos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400..700&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<!-- /artifact:head -->
+</head>
+<body>
+<!-- artifact:body -->
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="announce" role="region" aria-label="Announcements">
+  <p id="announce-text" aria-live="polite">Fall/Winter 2026 trend report: 12 runway trends, updated October 5, 2026</p>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <button class="icon-btn menu-btn" type="button" id="menu-btn" aria-label="Open menu" aria-controls="menu-panel">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+    </button>
+    <nav class="primary-nav" aria-label="Sections">
+      <a href="#trends">Trends</a>
+      <a href="#studio">Studio</a>
+      <a href="#ss27">Spring '27</a>
+      <a href="#colors">Colors</a>
+    </nav>
+    <a class="wordmark" href="#top" aria-label="Moda home">moda</a>
+    <div class="header-actions">
+      <button class="icon-btn" type="button" id="search-btn" aria-label="Search trends" aria-controls="search-panel">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+      </button>
+      <button class="icon-btn saved-btn" type="button" id="saved-btn" aria-label="Saved trends, 0 saved" aria-controls="saved-panel">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2Z"/></svg>
+        <span class="saved-count" id="saved-count" hidden>0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="main" tabindex="-1">
+  <main id="home"></main>
+  <main id="detail" hidden></main>
+</div>
+
+<footer class="site-footer" id="footer"></footer>
+
+<dialog class="panel panel-left" id="menu-panel" aria-label="Menu">
+  <div class="panel-head">
+    <span class="wordmark wordmark-sm">moda</span>
+    <button class="icon-btn" type="button" data-close aria-label="Close menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <nav class="menu-links" aria-label="Sections">
+    <a href="#trends" data-close>Trends</a>
+    <a href="#studio" data-close>Studio to Street</a>
+    <a href="#ss27" data-close>Spring '27 preview</a>
+    <a href="#colors" data-close>Colors of the season</a>
+  </nav>
+</dialog>
+
+<dialog class="panel panel-top" id="search-panel" aria-label="Search trends">
+  <div class="search-inner">
+    <form class="search-form" id="search-form" role="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+      <label class="visually-hidden" for="search-input">Search trends, designers or pieces</label>
+      <input id="search-input" type="search" placeholder="Search trends, designers or pieces" autocomplete="off">
+      <button class="icon-btn" type="button" data-close aria-label="Close search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </form>
+    <div class="search-suggest" id="search-suggest"></div>
+    <ul class="search-results" id="search-results"></ul>
+  </div>
+</dialog>
+
+<dialog class="panel panel-right" id="saved-panel" aria-label="Saved trends">
+  <div class="panel-head">
+    <h2 class="panel-title">My edit</h2>
+    <button class="icon-btn" type="button" data-close aria-label="Close saved trends">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="saved-body" id="saved-body"></div>
+</dialog>
+
+<dialog class="panel panel-right panel-wide" id="credits-panel" aria-label="Photo credits">
+  <div class="panel-head">
+    <h2 class="panel-title">Photo credits</h2>
+    <button class="icon-btn" type="button" data-close aria-label="Close photo credits">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="credits-body" id="credits-body"></div>
+</dialog>
+
+<script src="data/trends.js"></script>
+<script src="data/credits.js"></script>
+<script src="assets/app.js"></script>
+<!-- /artifact:body -->
+</body>
+</html>
