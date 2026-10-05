@@ -42,7 +42,10 @@
   // ---------- Helpers ----------
   const esc = (s) =>
     String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-  const src = (id, n) => `images/${id}-${n}.jpg`;
+  // Photos resolve through window.MODA_IMAGES when it's set (the single-file
+  // build in moda.html embeds them there); otherwise they load from images/.
+  const photo = (key) => (window.MODA_IMAGES && window.MODA_IMAGES[key]) || `images/${key}.jpg`;
+  const src = (id, n) => photo(`${id}-${n}`);
   const range = (n) => Array.from({ length: n }, (_, i) => i + 1);
   const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
   const listShort = (arr) => (arr.length <= 2 ? arr.join(", ") : `${arr[0]}, ${arr[1]} +${arr.length - 2}`);
@@ -106,9 +109,9 @@
     home.innerHTML = `
       <section class="hero" id="top" aria-labelledby="hero-title">
         <div class="hero-media">
-          <img src="images/the-trench-2.jpg" alt="" decoding="async">
-          <img src="images/faux-fur-shearling-1.jpg" alt="" decoding="async" fetchpriority="high">
-          <img src="images/scarlet-1.jpg" alt="" decoding="async">
+          <img src="${photo("the-trench-2")}" alt="" decoding="async">
+          <img src="${photo("faux-fur-shearling-1")}" alt="" decoding="async" fetchpriority="high">
+          <img src="${photo("scarlet-1")}" alt="" decoding="async">
         </div>
         <div class="hero-copy">
           <p class="eyebrow">Fall/Winter 2026 Trend Report</p>
@@ -129,7 +132,7 @@
           .map((c) => {
             const n = DATA.trends.filter((t) => t.category === c.id).length;
             return `<button class="tile" type="button" data-tile="${c.id}">
-              <span class="tile-media"><img src="images/${c.cover}.jpg" alt="" loading="lazy" decoding="async"></span>
+              <span class="tile-media"><img src="${photo(c.cover)}" alt="" loading="lazy" decoding="async"></span>
               <span class="tile-label"><strong>${esc(c.label)}</strong><span>${plural(n, "trend")}</span></span>
             </button>`;
           })
@@ -183,7 +186,7 @@
         </div>
         <div class="studio-block">
           <figure class="studio-feature">
-            <img src="images/retro-track-2.jpg" alt="A runner in a red top and black leggings" loading="lazy" decoding="async">
+            <img src="${photo("retro-track-2")}" alt="A runner in a red top and black leggings" loading="lazy" decoding="async">
             <figcaption><span class="eyebrow" style="color:inherit">This fall</span><strong>Flares, retro track and mocha sets</strong></figcaption>
           </figure>
           <div class="studio-copy">

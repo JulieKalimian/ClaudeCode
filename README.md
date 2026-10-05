@@ -18,8 +18,11 @@ Content is current as of **October 5, 2026**.
 
 There's no build step and there are no dependencies. Do one of the following:
 
+- Open **`moda.html`**. It's the whole app in one file, with the code, data and photos built in, so you can save it anywhere, send it to someone, or open it offline.
 - Open `index.html` in a browser.
 - Or serve the folder: `python3 -m http.server 8000`, then visit <http://localhost:8000>.
+
+`moda.html` is generated from the other files. After changing anything in `assets/`, `data/` or `images/`, rebuild it with `node scripts/build-single.mjs`.
 
 ## Project layout
 
@@ -30,6 +33,8 @@ assets/app.js         Rendering, filters, search, saved trends, hash routing (#t
 data/trends.js        Trend content, seasons, categories, colors and sources
 data/credits.js       Credit for every photo in images/
 images/               Photos, cropped to 4:5 (<trend-id>-<n>.jpg)
+moda.html             Single-file build of the whole app (generated)
+scripts/build-single.mjs    Builds moda.html
 scripts/build-artifact.mjs  Builds dist/artifact.html for publishing as a claude.ai Artifact
 ```
 
@@ -38,6 +43,7 @@ scripts/build-artifact.mjs  Builds dist/artifact.html for publishing as a claude
 1. Add an entry to `trends` in `data/trends.js`. `season` is `fw26`, `studio` or `ss27`. `status` is `peak`, `rising` or `early`. `images` is the number of photos.
 2. Add the photos as `images/<id>-1.jpg`, `images/<id>-2.jpg`, and so on, at a 4:5 ratio.
 3. Add a credit for each photo to `data/credits.js`.
+4. Rebuild the single-file version: `node scripts/build-single.mjs`.
 
 ## Sources
 
